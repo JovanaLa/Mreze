@@ -2,14 +2,11 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
-const cors = require("cors");
 require("dotenv/config");
 const connectDB = require("./helpers/database");
 const configureJWT = require("./helpers/jwt-configuration");
 const errorHandler = require("./helpers/error-handler");
 
-app.use(cors());
-app.options("*", cors());
 app.use(bodyParser.json());
 app.use(morgan("tiny"));
 app.use(errorHandler);
@@ -20,7 +17,7 @@ configureJWT(app);
 const api = process.env.API_URL;
 
 const productsRoutes = require("./routes/productRoutes");
-const usersRoutes = require("./routes/users");
+const usersRoutes = require("./routes/usersRoutes");
 const ordersRoutes = require("./routes/orderRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const reviewsRoutes = require("./routes/reviewsRoutes");

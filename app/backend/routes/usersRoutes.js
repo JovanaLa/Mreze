@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require("../controllers/userController");
 const { checkTokenBlacklist } = require("../helpers/jwt");
 let { blacklist } = require("../controllers/userController");
+
 router.get("/", checkTokenBlacklist, userController.getUsers);
 router.get("/:id", checkTokenBlacklist, userController.getUserById);
 router.post("/register", userController.registerUser);

@@ -155,7 +155,7 @@ const refresh = (req, res) => {
 
     res.json({ accessToken: accessToken });
   });
-}
+};
 module.exports = {
   getUsers,
   getUserById,
@@ -164,5 +164,5 @@ module.exports = {
   updateUser,
   deleteUser,
   logoutUser,
-  refresh
+  refresh,
 };
